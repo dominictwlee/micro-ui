@@ -4,6 +4,7 @@ import React, {
   useState,
   useEffect,
   useMemo,
+  useContext,
 } from 'react';
 import { Global, Interpolation, Theme } from '@emotion/react';
 import { toCssVarThemes } from './utils';
@@ -43,4 +44,12 @@ export function ThemeProvider({
       {children}
     </ThemeContext.Provider>
   );
+}
+
+export function useTheme() {
+  const theme = useContext(ThemeContext);
+  if (!theme) {
+    throw new Error('useTheme must be used within ThemeProvider');
+  }
+  return theme;
 }
