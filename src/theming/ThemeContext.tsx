@@ -4,27 +4,12 @@ import React, {
   useState,
   useEffect,
   useMemo,
-  useLayoutEffect,
 } from 'react';
 import { Global, Interpolation, Theme } from '@emotion/react';
-import { toThemeCssVars } from './utils';
+import { toCssVarThemes } from './utils';
+import defaultThemes from './defaultThemes';
 
-const defaultThemes = {
-  light: {
-    colors: {
-      primary: '#1BD0FB',
-      background: 'white',
-    },
-  },
-  dark: {
-    colors: {
-      primary: '#792AFC',
-      background: '#1D1E23',
-    },
-  },
-};
-
-const themeCssVars = toThemeCssVars(defaultThemes);
+const defaultCssVarThemes = toCssVarThemes(defaultThemes);
 
 type ThemeValue = [
   'light' | 'dark',
@@ -54,7 +39,7 @@ export function ThemeProvider({
 
   return (
     <ThemeContext.Provider value={themeValue}>
-      <Global styles={theme ?? themeCssVars} />
+      <Global styles={theme ?? defaultCssVarThemes} />
       {children}
     </ThemeContext.Provider>
   );

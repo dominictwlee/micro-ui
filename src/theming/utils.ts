@@ -42,7 +42,7 @@ export function toCssVars<T>(themeObj: T, prefix = '-') {
   return vars;
 }
 
-export function toThemeCssVars<T>(themeObj: T) {
+export function toCssVarThemes<T>(themeObj: T) {
   const themeVars: ThemeCssVars = {};
 
   for (const [key, value] of Object.entries(themeObj)) {
