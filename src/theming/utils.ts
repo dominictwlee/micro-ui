@@ -19,6 +19,10 @@ interface CssVarMap {
   [cssVarName: string]: string;
 }
 
+interface ThemeCssVars {
+  [theme: string]: CssVarMap;
+}
+
 export function toCssVars<T>(themeObj: T, prefix = '-') {
   const vars: CssVarMap = {};
 
@@ -36,4 +40,14 @@ export function toCssVars<T>(themeObj: T, prefix = '-') {
     }
   }
   return vars;
+}
+
+export function toThemeCssVars<T>(themeObj: T) {
+  const themeVars: ThemeCssVars = {};
+
+  for (const [key, value] of Object.entries(themeObj)) {
+    themeVars[`body[data-theme="${key}"]`] = toCssVars(value);
+  }
+
+  return themeVars;
 }
