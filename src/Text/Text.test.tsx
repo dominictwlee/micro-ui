@@ -7,7 +7,9 @@ function Variants() {
   return (
     <div>
       {['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7', 'p1'].map(el => (
-        <Text variant={el as any}>{el}</Text>
+        <Text key={el} variant={el as any}>
+          {el}
+        </Text>
       ))}
     </div>
   );
