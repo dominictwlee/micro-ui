@@ -13,6 +13,48 @@ const shared = {
       '2': '8px',
     },
   },
+  typography: {
+    h1: {
+      fontSize: '36px',
+      lineHeight: 1.2,
+      fontWeight: 600,
+    },
+    h2: {
+      fontSize: '24px',
+      lineHeight: 1.3,
+      fontWeight: 600,
+    },
+    h3: {
+      fontSize: '18px',
+      lineHeight: 1.3,
+      fontWeight: 600,
+    },
+    h4: {
+      fontSize: '16px',
+      lineHeight: 1.5,
+      fontWeight: 500,
+    },
+    h5: {
+      fontSize: '16px',
+      lineHeight: 1.5,
+      fontWeight: 500,
+    },
+    h6: {
+      fontSize: '14px',
+      lineHeight: 1.28,
+      fontWeight: 500,
+    },
+    h7: {
+      fontSize: '12px',
+      lineHeight: 1.6,
+      fontWeight: 500,
+    },
+    p1: {
+      fontSize: '14px',
+      lineHeight: 1.42,
+      fontWeight: 400,
+    },
+  },
 };
 
 const defaultThemes = {
