@@ -1,4 +1,4 @@
-import { toCssVarNames, toCssVars } from '../utils';
+import { toCssVarNames, toCssVars } from './utils';
 
 describe('Theming utils', () => {
   const mockThemeObj = {

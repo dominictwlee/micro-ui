@@ -1,6 +1,8 @@
 import React from 'react';
-import { useTheme, toCssVarNames, defaultThemes } from '../../theming';
-import { render, screen, fireEvent } from '../../utils/testUtils';
+import { useTheme } from './ThemeContext';
+import { toCssVarNames } from './utils';
+import defaultThemes from './defaultThemes';
+import { render, screen, fireEvent } from '../utils/testUtils';
 
 const theme = toCssVarNames(defaultThemes.dark);
 

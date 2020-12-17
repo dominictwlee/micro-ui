@@ -1,3 +1,20 @@
+const shared = {
+  spacing: {
+    '1': '8px',
+    '2': '12px',
+    '3': '16px',
+    '4': '24px',
+    '5': '32px',
+    '6': '48px',
+  },
+  shape: {
+    borderRadius: {
+      '1': '4px',
+      '2': '8px',
+    },
+  },
+};
+
 const defaultThemes = {
   light: {
     colors: {
@@ -43,6 +60,7 @@ const defaultThemes = {
         dark: '#272A31',
       },
     },
+    ...shared,
   },
   dark: {
     colors: {
@@ -84,10 +102,11 @@ const defaultThemes = {
       },
       card: {
         light: '#3B3F49',
-        main: '#2C2D35',
-        dark: '#272A31',
+        lighter: '#2C2D35',
+        main: '#272A31',
       },
     },
+    ...shared,
   },
 };
 

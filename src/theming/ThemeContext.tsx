@@ -6,7 +6,7 @@ import React, {
   useMemo,
   useContext,
 } from 'react';
-import { Global, Interpolation, Theme } from '@emotion/react';
+import { Global, Interpolation, Theme } from '@emotion/react/macro';
 import { toCssVarThemes, toCssVarNames } from './utils';
 import defaultThemes from './defaultThemes';
 
