@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { css, keyframes, jsx } from '@emotion/react';
 import React, { HTMLProps } from 'react';
 import { themeVars } from '../theming';
 
@@ -6,6 +6,12 @@ interface ButtonProps extends HTMLProps<HTMLButtonElement> {
   color?: 'primary' | 'secondary' | 'tertiary';
   type?: 'button' | 'submit' | 'reset';
 }
+
+const fillToRight = keyframes`
+  to {
+    width: 100%;
+  }
+`;
 
 const base = css`
   display: inline-flex;
@@ -15,6 +21,19 @@ const base = css`
   border-width: 1px;
   border-style: solid;
   color: ${themeVars.colors.text.primary};
+
+  &:after {
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 0;
+    width: 0;
+    background: pink;
+  }
+
+  &:hover:after {
+    animation: ${fillToRight} 0.7s forwards;
+  }
 `;
 
 const primary = css`
