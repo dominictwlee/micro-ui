@@ -7,10 +7,11 @@ import React, {
   useContext,
 } from 'react';
 import { Global, Interpolation, Theme } from '@emotion/react';
-import { toCssVarThemes } from './utils';
+import { toCssVarThemes, toCssVarNames } from './utils';
 import defaultThemes from './defaultThemes';
 
 const defaultCssVarThemes = toCssVarThemes(defaultThemes);
+export const themeVars = toCssVarNames(defaultThemes.dark);
 
 type ThemeValue = [
   'light' | 'dark',
