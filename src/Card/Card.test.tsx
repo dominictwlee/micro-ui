@@ -13,4 +13,10 @@ describe('Card', () => {
 
     expect(screen.getByText('hello world')).toBeInTheDocument();
   });
+
+  test('render with default styles', () => {
+    const { container } = render(<Card />);
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

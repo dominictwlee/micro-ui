@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card render with default styles 1`] = `
+<div
+  class="css-ntq0cf-base-shape-spacing-Card"
+/>
+`;

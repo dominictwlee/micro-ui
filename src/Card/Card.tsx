@@ -21,6 +21,10 @@ const spacing = ({ spacing = 3 }: CardProps) => css`
   padding: ${themeVars.spacing[spacing]} ${themeVars.spacing[spacing]};
 `;
 
-export default function Card(props: PropsWithChildren<CardProps>) {
+export default function Card({
+  roundness,
+  spacing: _spacing,
+  ...props
+}: PropsWithChildren<CardProps>) {
   return <div css={[base, shape, spacing]} {...props} />;
 }
