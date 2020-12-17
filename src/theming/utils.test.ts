@@ -17,7 +17,7 @@ describe('Theming utils', () => {
       primary: ['#1BD0FB', '#1D1E23'],
       secondary: {
         main: '#792AFC',
-        darker: 1,
+        darker: [],
       },
     },
   };

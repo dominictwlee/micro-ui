@@ -4,9 +4,12 @@ export function toCssVarNames<T>(themeObj: T, prefix = '-'): T {
   const vars: any = {};
   for (const [key, value] of Object.entries(themeObj)) {
     const varName = `${prefix}-${key}`;
+    if (Array.isArray(value)) {
+      throw INVALID_CSS_ERROR;
+    }
     if (typeof value === 'object') {
       vars[key] = toCssVarNames(value, varName);
-    } else if (typeof value === 'string') {
+    } else if (typeof value === 'string' || typeof value === 'number') {
       vars[key] = `var(${varName})`;
     } else {
       throw INVALID_CSS_ERROR;
@@ -16,7 +19,7 @@ export function toCssVarNames<T>(themeObj: T, prefix = '-'): T {
 }
 
 interface CssVarMap {
-  [cssVarName: string]: string;
+  [cssVarName: string]: string | number;
 }
 
 interface ThemeCssVars {
@@ -28,12 +31,15 @@ export function toCssVars<T>(themeObj: T, prefix = '-') {
 
   for (const [key, value] of Object.entries(themeObj)) {
     const varName = `${prefix}-${key}`;
+    if (Array.isArray(value)) {
+      throw INVALID_CSS_ERROR;
+    }
     if (typeof value === 'object') {
       const nestedVars = toCssVars(value, varName);
       for (const [nestedKey, nestedValue] of Object.entries(nestedVars)) {
         vars[nestedKey] = nestedValue;
       }
-    } else if (typeof value === 'string') {
+    } else if (typeof value === 'string' || typeof value === 'number') {
       vars[varName] = value;
     } else {
       throw INVALID_CSS_ERROR;
