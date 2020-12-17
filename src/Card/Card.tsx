@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import { css } from '@emotion/react/macro';
+import { css } from '@emotion/react';
 
 import { themeVars } from '../theming';
 
