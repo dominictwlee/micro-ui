@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 
 import { themeVars } from '../theming';
 
-interface CardProps {
+export interface CardProps {
   roundness?: 1 | 2;
   spacing?: 1 | 2 | 3 | 4 | 5 | 6;
 }

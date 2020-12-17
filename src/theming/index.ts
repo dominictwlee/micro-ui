@@ -1,3 +1,3 @@
-export { ThemeProvider, useTheme, themeVars } from './ThemeContext';
+export * from './ThemeContext';
 export { toCssVarNames, toCssVarThemes } from './utils';
 export { default as defaultThemes } from './defaultThemes';

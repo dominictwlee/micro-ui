@@ -20,7 +20,7 @@ type ThemeValue = [
 
 const ThemeContext = createContext<ThemeValue | undefined>(undefined);
 
-interface ThemeProviderProps {
+export interface ThemeProviderProps {
   theme?: Interpolation<Theme>;
 }
 

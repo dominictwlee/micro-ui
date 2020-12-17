@@ -14,7 +14,7 @@ const elementTags = {
   p1: 'p',
 };
 
-interface TextProps
+export interface TextProps
   extends HTMLProps<HTMLParagraphElement | HTMLHeadingElement> {
   variant?: keyof typeof elementTags;
 }
