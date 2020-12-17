@@ -2,28 +2,44 @@
 
 exports[`Text render different variants 1`] = `
 <div>
-  <h1>
+  <h1
+    class="css-cu1ao1-base"
+  >
     h1
   </h1>
-  <h2>
+  <h2
+    class="css-cu1ao1-base"
+  >
     h2
   </h2>
-  <h3>
+  <h3
+    class="css-cu1ao1-base"
+  >
     h3
   </h3>
-  <h4>
+  <h4
+    class="css-cu1ao1-base"
+  >
     h4
   </h4>
-  <h5>
+  <h5
+    class="css-cu1ao1-base"
+  >
     h5
   </h5>
-  <h6>
+  <h6
+    class="css-cu1ao1-base"
+  >
     h6
   </h6>
-  <h6>
+  <h6
+    class="css-cu1ao1-base"
+  >
     h7
   </h6>
-  <p>
+  <p
+    class="css-cu1ao1-base"
+  >
     p1
   </p>
 </div>

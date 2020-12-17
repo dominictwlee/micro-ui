@@ -1,5 +1,5 @@
-import { css } from '@emotion/react';
 import React, { HTMLProps, PropsWithChildren } from 'react';
+import { css } from '@emotion/react';
 
 import { themeVars } from '../theming';
 
@@ -12,7 +12,7 @@ const elementTags = {
   h6: 'h6',
   h7: 'h6',
   p1: 'p',
-};
+} as const;
 
 export interface TextProps
   extends HTMLProps<HTMLParagraphElement | HTMLHeadingElement> {
@@ -29,6 +29,6 @@ export default function Text({
   variant = 'p1',
   ...props
 }: PropsWithChildren<TextProps>) {
-  const element = elementTags[variant];
-  return React.createElement(element, { ...props, css: base });
+  const Element = elementTags[variant];
+  return <Element {...props} css={base} />;
 }
