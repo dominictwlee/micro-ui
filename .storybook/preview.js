@@ -6,6 +6,19 @@ import Normalize from '../src/Normalize';
 export const parameters = {
   // https://storybook.js.org/docs/react/essentials/actions#automatically-matching-args
   actions: { argTypesRegex: '^on.*' },
+  backgrounds: {
+    default: 'dark',
+    values: [
+      {
+        name: 'dark',
+        value: '#272A31',
+      },
+      {
+        name: 'light',
+        value: '#fff',
+      },
+    ],
+  },
 };
 
 export const decorators = [
