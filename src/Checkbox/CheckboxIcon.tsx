@@ -16,11 +16,15 @@ const checked = css`
   }
 `;
 
-export default function CheckboxIcon() {
+interface CheckboxIconProps {
+  size?: string;
+}
+
+export default function CheckboxIcon({ size }: CheckboxIconProps) {
   return (
     <>
-      <MdCheckBoxOutlineBlank css={unchecked} />
-      <MdCheckBox css={checked} />
+      <MdCheckBoxOutlineBlank css={unchecked} size={size} />
+      <MdCheckBox css={checked} size={size} />
     </>
   );
 }

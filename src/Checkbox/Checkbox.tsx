@@ -19,6 +19,9 @@ const wrapper = css`
   align-items: center;
   justify-content: center;
   vertical-align: middle;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
 `;
 
 export default function Checkbox() {
@@ -27,9 +30,9 @@ export default function Checkbox() {
       <input
         type="checkbox"
         css={checkboxInputHidden}
-        onChange={e => console.log(e.target.value)}
+        onChange={e => console.log(e.target.checked)}
       />
-      <CheckboxIcon />
+      <CheckboxIcon size="100%" />
     </span>
   );
 }
