@@ -30,5 +30,5 @@ export default function Text({
   ...props
 }: PropsWithChildren<TextProps>) {
   const Element = elementTags[variant];
-  return <Element {...props} css={base} />;
+  return <Element css={base} {...props} />;
 }

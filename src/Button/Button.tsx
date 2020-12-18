@@ -1,5 +1,5 @@
-import { css, keyframes, jsx } from '@emotion/react';
-import React, { HTMLProps } from 'react';
+import { css } from '@emotion/react';
+import React, { HTMLProps, PropsWithChildren } from 'react';
 import { themeVars } from '../theming';
 
 interface ButtonProps extends HTMLProps<HTMLButtonElement> {
@@ -7,33 +7,44 @@ interface ButtonProps extends HTMLProps<HTMLButtonElement> {
   type?: 'button' | 'submit' | 'reset';
 }
 
-const fillToRight = keyframes`
-  to {
-    width: 100%;
-  }
+const border = css`
+  border-color: none;
+  border-radius: ${themeVars.shape.borderRadius[1]};
 `;
 
 const base = css`
+  position: relative;
   display: inline-flex;
-  justify-content: 'center';
-  align-items: 'center';
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
-  border-width: 1px;
-  border-style: solid;
   color: ${themeVars.colors.text.primary};
+  padding: 10px;
+  width: 50%;
+  cursor: pointer;
+  ${border};
 
-  &:after {
+  &:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s;
     top: 0;
     left: 0;
-    height: 100%;
-    z-index: 0;
-    width: 0;
-    background: pink;
+    background: ${themeVars.colors.primary.light};
+    ${border}
   }
 
-  &:hover:after {
-    animation: ${fillToRight} 0.7s forwards;
+  &:hover:before,
+  &:active:before {
+    opacity: 1;
   }
+`;
+
+const buttonTextLayer = css`
+  position: relative;
 `;
 
 const primary = css`
@@ -47,6 +58,14 @@ const colorStyles = {
   tertiary: primary,
 };
 
-export default function Button({ color = 'primary', ...props }: ButtonProps) {
-  return <button type="button" css={[base, colorStyles[color]]} {...props} />;
+export default function Button({
+  color = 'primary',
+  children,
+  ...props
+}: PropsWithChildren<ButtonProps>) {
+  return (
+    <button type="button" css={[base, colorStyles[color]]} {...props}>
+      <span css={buttonTextLayer}>{children}</span>
+    </button>
+  );
 }
