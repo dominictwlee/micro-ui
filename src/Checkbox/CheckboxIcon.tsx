@@ -19,12 +19,8 @@ const checked = css`
 export default function CheckboxIcon() {
   return (
     <>
-      <div css={unchecked}>
-        <MdCheckBoxOutlineBlank />
-      </div>
-      <div css={checked}>
-        <MdCheckBox />
-      </div>
+      <MdCheckBoxOutlineBlank css={unchecked} />
+      <MdCheckBox css={checked} />
     </>
   );
 }
