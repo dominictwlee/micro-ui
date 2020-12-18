@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import React, { HTMLProps, PropsWithChildren } from 'react';
+import { HTMLProps, PropsWithChildren } from 'react';
 import { themeVars } from '../theming';
 
 export interface ButtonProps extends HTMLProps<HTMLButtonElement> {
