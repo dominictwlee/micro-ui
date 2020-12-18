@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import { themeVars } from '../theming';
 
 import CheckboxIcon from './CheckboxIcon';
 
@@ -24,6 +25,10 @@ const wrapper = css`
   padding: 4px;
 `;
 
+const iconColor = css`
+  color: ${themeVars.colors.tertiary.main};
+`;
+
 export default function Checkbox() {
   return (
     <span css={wrapper}>
@@ -32,7 +37,7 @@ export default function Checkbox() {
         css={checkboxInputHidden}
         onChange={e => console.log(e.target.checked)}
       />
-      <CheckboxIcon size="100%" />
+      <CheckboxIcon size="100%" css={iconColor} />
     </span>
   );
 }

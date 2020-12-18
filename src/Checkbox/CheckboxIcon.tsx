@@ -20,11 +20,11 @@ interface CheckboxIconProps {
   size?: string;
 }
 
-export default function CheckboxIcon({ size }: CheckboxIconProps) {
+export default function CheckboxIcon(props: CheckboxIconProps) {
   return (
     <>
-      <MdCheckBoxOutlineBlank css={unchecked} size={size} />
-      <MdCheckBox css={checked} size={size} />
+      <MdCheckBoxOutlineBlank css={unchecked} {...props} />
+      <MdCheckBox css={checked} {...props} />
     </>
   );
 }
