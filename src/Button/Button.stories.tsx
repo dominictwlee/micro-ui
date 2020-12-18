@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './Button';
 
-const meta: any = {
+const meta = {
   title: 'Button',
   component: Button,
   argTypes: {
