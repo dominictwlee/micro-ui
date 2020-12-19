@@ -6748,6 +6748,11 @@ focus-lock@^0.8.1:
   dependencies:
     tslib "^1.9.3"
 
+fontsource-montserrat@^3.1.5:
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/fontsource-montserrat/-/fontsource-montserrat-3.1.5.tgz#766d71f9255a4abe9abb628e47e95a8912b45897"
+  integrity sha512-wLmozvb4j/yDbPEBrzHmkAM2PDHp+GV7l6T/GzrmiM8rHeLDIQuUfWJ3b05pAu7q5xRhuG2cDqr+bCagaKws0w==
+
 for-in@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
