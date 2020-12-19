@@ -2,9 +2,9 @@ import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { ThemeProvider } from '../src';
-import { toThemeCssVars } from '../src/theming/utils';
+import { toCssVarThemes } from '../src/theming/utils';
 
-const customTheme = toThemeCssVars({
+const customTheme = toCssVarThemes({
   light: {
     colors: {
       primary: 'pink',
