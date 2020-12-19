@@ -23,10 +23,10 @@ const focused = ({ color = 'primary' }: InputProps) => css`
   }
 `;
 
-export default function Input() {
+export default function Input({ color, ...props }: InputProps) {
   return (
     <div>
-      <input type="text" css={[inputBase, focused]} />
+      <input type="text" css={[inputBase, focused]} {...props} />
     </div>
   );
 }
