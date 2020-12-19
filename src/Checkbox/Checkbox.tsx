@@ -6,6 +6,8 @@ import CheckboxIcon from './CheckboxIcon';
 
 interface CheckboxProps {
   inputProps?: HTMLProps<HTMLInputElement>;
+  color?: 'primary' | 'secondary' | 'tertiary' | 'accent';
+  size?: 'small' | 'medium' | 'large';
 }
 
 const checkboxInputHidden = css`
@@ -25,18 +27,43 @@ const wrapper = css`
   align-items: center;
   justify-content: center;
   vertical-align: middle;
+`;
+
+const sizeSmall = css`
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+`;
+
+const sizeMedium = css`
   width: 32px;
   height: 32px;
   padding: 4px;
 `;
 
-const iconColor = css`
-  color: ${themeVars.colors.tertiary.main};
+const sizeLarge = css`
+  width: 48;
+  height: 48px;
+  padding: 4px;
 `;
 
-export default function Checkbox({ inputProps = {}, ...props }: CheckboxProps) {
+const sizes = {
+  small: sizeSmall,
+  medium: sizeMedium,
+  large: sizeLarge,
+};
+
+const iconColor = ({ color = 'tertiary' }: CheckboxProps) => css`
+  color: ${themeVars.colors[color].main};
+`;
+
+export default function Checkbox({
+  inputProps = {},
+  size = 'medium',
+  ...props
+}: CheckboxProps) {
   return (
-    <span css={wrapper} {...props}>
+    <span css={[wrapper, sizes[size]]} {...props}>
       <input css={checkboxInputHidden} {...inputProps} type="checkbox" />
       <CheckboxIcon size="100%" css={iconColor} />
     </span>
