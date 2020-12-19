@@ -32,13 +32,14 @@ const focused = ({ color = 'primary' }: InputProps) => css`
 
 const inputLabel = css`
   display: block;
+  margin-bottom: ${themeVars.spacing[0]};
 `;
 
 export default function Input({ color, label, ...props }: InputProps) {
   return (
     <div>
       {label && (
-        <Label css={[themeVars.typography.inputLabel, inputLabel]}>
+        <Label css={[inputLabel, themeVars.typography.inputLabel]}>
           {label}
         </Label>
       )}
