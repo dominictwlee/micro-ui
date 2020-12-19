@@ -4,10 +4,14 @@ import { css } from '@emotion/react';
 import { themeVars } from '../theming';
 import CheckboxIcon from './CheckboxIcon';
 
+type InputElementProps = HTMLProps<HTMLInputElement>;
+
 interface CheckboxProps {
-  inputProps?: HTMLProps<HTMLInputElement>;
+  inputProps?: Omit<InputElementProps, 'onChange' | 'checked'>;
   color?: 'primary' | 'secondary' | 'tertiary' | 'accent';
   size?: 'small' | 'medium' | 'large';
+  onChange?: InputElementProps['onChange'];
+  checked?: InputElementProps['checked'];
 }
 
 const checkboxInputHidden = css`
@@ -60,11 +64,19 @@ const iconColor = ({ color = 'tertiary' }: CheckboxProps) => css`
 export default function Checkbox({
   inputProps = {},
   size = 'medium',
+  checked,
+  onChange,
   ...props
 }: CheckboxProps) {
   return (
     <span css={[wrapper, sizes[size]]} {...props}>
-      <input css={checkboxInputHidden} {...inputProps} type="checkbox" />
+      <input
+        css={checkboxInputHidden}
+        {...inputProps}
+        checked={checked}
+        onChange={onChange}
+        type="checkbox"
+      />
       <CheckboxIcon size="100%" css={iconColor} />
     </span>
   );
