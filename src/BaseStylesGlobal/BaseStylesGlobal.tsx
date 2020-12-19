@@ -1,7 +1,7 @@
 import React from 'react';
 import { Global, css } from '@emotion/react';
 
-export default function Normalize() {
+export default function BaseStylesGlobal() {
   return (
     <Global
       styles={css`
@@ -59,8 +59,8 @@ Improve consistency of default fonts in all browsers. (https://github.com/sindre
 */
 
         body {
-          font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica,
-            Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+          font-family: Montserrat, system-ui, -apple-system, 'Segoe UI', Roboto,
+            Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
         }
 
         /*

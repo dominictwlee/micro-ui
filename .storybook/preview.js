@@ -1,6 +1,9 @@
 import React from 'react';
 import { ThemeProvider } from '../src/theming';
-import Normalize from '../src/Normalize';
+import BaseStylesGlobal from '../src/BaseStylesGlobal';
+import 'fontsource-montserrat/400.css';
+import 'fontsource-montserrat/500.css';
+import 'fontsource-montserrat/600.css';
 
 // https://storybook.js.org/docs/react/writing-stories/parameters#global-parameters
 export const parameters = {
@@ -24,7 +27,7 @@ export const parameters = {
 export const decorators = [
   Story => (
     <ThemeProvider>
-      <Normalize />
+      <BaseStylesGlobal />
       <Story />
     </ThemeProvider>
   ),
