@@ -54,6 +54,11 @@ const shared = {
       lineHeight: 1.42,
       fontWeight: 400,
     },
+    inputLabel: {
+      fontSize: '14px',
+      lineHeight: 1.42,
+      fontWeight: 500,
+    },
   },
 };
 

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { HTMLProps } from 'react';
 import { css } from '@emotion/react';
 import { themeVars } from '../theming';
 import { Color } from '../types';
+import Label from '../Label';
 
-interface InputProps {
+interface InputProps extends HTMLProps<HTMLInputElement> {
   color?: Color;
+  label?: string;
 }
 
 const inputBase = css`
@@ -23,9 +25,18 @@ const focused = ({ color = 'primary' }: InputProps) => css`
   }
 `;
 
-export default function Input({ color, ...props }: InputProps) {
+const inputLabel = css`
+  display: block;
+`;
+
+export default function Input({ color, label, ...props }: InputProps) {
   return (
     <div>
+      {label && (
+        <Label css={[themeVars.typography.inputLabel, inputLabel]}>
+          {label}
+        </Label>
+      )}
       <input type="text" css={[inputBase, focused]} {...props} />
     </div>
   );
