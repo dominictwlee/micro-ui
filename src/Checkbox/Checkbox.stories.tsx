@@ -25,10 +25,10 @@ export const Labelled: any = (args: any) => (
       justify-content: space-evenly;
     `}
   >
-    <Checkbox {...args} labelPosition="left" />
-    <Checkbox {...args} labelPosition="top" />
-    <Checkbox {...args} labelPosition="right" />
-    <Checkbox {...args} labelPosition="bottom" />
+    <Checkbox {...args} labelPosition="left" id="checkbox-1" />
+    <Checkbox {...args} labelPosition="top" id="checkbox-2" />
+    <Checkbox {...args} labelPosition="right" id="checkbox-3" />
+    <Checkbox {...args} labelPosition="bottom" id="checkbox-4" />
   </div>
 );
 Labelled.args = {
