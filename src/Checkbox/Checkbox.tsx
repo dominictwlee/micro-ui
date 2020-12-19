@@ -3,15 +3,19 @@ import { css } from '@emotion/react';
 
 import { themeVars } from '../theming';
 import CheckboxIcon from './CheckboxIcon';
+import Label from '../Label';
 
 type InputElementProps = HTMLProps<HTMLInputElement>;
 
 interface CheckboxProps {
-  inputProps?: Omit<InputElementProps, 'onChange' | 'checked'>;
+  inputProps?: Omit<InputElementProps, 'onChange' | 'checked' | 'id'>;
   color?: 'primary' | 'secondary' | 'tertiary' | 'accent';
   size?: 'small' | 'medium' | 'large';
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   checked?: InputElementProps['checked'];
+  id?: InputElementProps['id'];
+  label?: string;
+  labelPosition?: 'left' | 'right' | 'top' | 'bottom';
 }
 
 const checkboxInputHidden = css`
@@ -61,23 +65,61 @@ const iconColor = ({ color = 'tertiary' }: CheckboxProps) => css`
   color: ${themeVars.colors[color].main};
 `;
 
+const labelPositionVertical = css`
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 export default function Checkbox({
   inputProps = {},
   size = 'medium',
   checked,
   onChange,
+  id,
+  label,
+  labelPosition = 'right',
   ...props
 }: CheckboxProps) {
-  return (
+  const htmlId = id ?? label;
+  const checkbox = (
     <span css={[wrapper, sizes[size]]} {...props}>
       <input
         css={checkboxInputHidden}
         {...inputProps}
+        id={htmlId}
         checked={checked}
         onChange={onChange}
         type="checkbox"
       />
       <CheckboxIcon size="100%" css={iconColor} />
     </span>
+  );
+
+  if (!label) {
+    return checkbox;
+  }
+
+  const isVerticalPositioned =
+    labelPosition === 'top' || labelPosition === 'bottom';
+
+  return (
+    <Label
+      htmlFor={htmlId}
+      css={[
+        css`
+          cursor: pointer;
+        `,
+        isVerticalPositioned && labelPositionVertical,
+      ]}
+    >
+      {(labelPosition === 'left' || labelPosition === 'top') && (
+        <span>{label}</span>
+      )}
+      {checkbox}
+      {(labelPosition === 'right' || labelPosition === 'bottom') && (
+        <span>{label}</span>
+      )}
+    </Label>
   );
 }

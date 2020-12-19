@@ -1,19 +1,14 @@
 import React from 'react';
+import { Meta, Story } from '@storybook/react/types-6-0';
 import Checkbox from './Checkbox';
+import { css } from '@emotion/react';
 
-const meta = {
+const meta: Meta = {
   title: 'Checkbox',
   component: Checkbox,
-  // argTypes: {
-  //   children: {
-  //     control: {
-  //       type: 'text',
-  //     },
-  //   },
-  // },
-  // parameters: {
-  //   controls: { expanded: true },
-  // },
+  parameters: {
+    controls: { expanded: true },
+  },
 };
 
 export default meta;
@@ -24,6 +19,19 @@ const Template = (args: any) => <Checkbox {...args} />;
 // https://storybook.js.org/docs/react/workflows/unit-testing
 export const Default: any = Template.bind({});
 
-Default.args = {
-  children: 'Click Me',
+export const Labelled: Story = (args: any) => (
+  <div
+    css={css`
+      display: flex;
+      justify-content: space-evenly;
+    `}
+  >
+    <Checkbox {...args} labelPosition="left" />
+    <Checkbox {...args} labelPosition="top" />
+    <Checkbox {...args} labelPosition="right" />
+    <Checkbox {...args} labelPosition="bottom" />
+  </div>
+);
+Labelled.args = {
+  label: 'Enable some functionality',
 };
