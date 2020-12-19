@@ -1,4 +1,4 @@
-import { HTMLProps } from 'react';
+import { ChangeEvent, HTMLProps } from 'react';
 import { css } from '@emotion/react';
 
 import { themeVars } from '../theming';
@@ -10,7 +10,7 @@ interface CheckboxProps {
   inputProps?: Omit<InputElementProps, 'onChange' | 'checked'>;
   color?: 'primary' | 'secondary' | 'tertiary' | 'accent';
   size?: 'small' | 'medium' | 'large';
-  onChange?: InputElementProps['onChange'];
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   checked?: InputElementProps['checked'];
 }
 
