@@ -19,7 +19,7 @@ const base = css`
   align-items: center;
   text-decoration: none;
   color: ${themeVars.colors.text.primary};
-  padding: 10px;
+  padding: ${themeVars.spacing[3]};
   border: 0;
   cursor: pointer;
   ${borderRadius}
@@ -69,7 +69,12 @@ export default function Button({
   return (
     <button
       type="button"
-      css={[base, colorStyles, fullWidth && fullWidthStyles]}
+      css={[
+        base,
+        colorStyles,
+        fullWidth && fullWidthStyles,
+        themeVars.typography.button,
+      ]}
       {...props}
     >
       <span css={buttonTextLayer}>{children}</span>

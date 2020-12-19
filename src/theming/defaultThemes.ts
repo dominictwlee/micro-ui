@@ -59,6 +59,10 @@ const shared = {
       lineHeight: 1.42,
       fontWeight: 500,
     },
+    button: {
+      fontSize: '16px',
+      fontWeight: 500,
+    },
   },
 };
 
