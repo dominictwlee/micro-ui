@@ -15,7 +15,7 @@ const inputBase = css`
   border-width: 1px;
   border-color: ${themeVars.colors.border.light};
   color: ${themeVars.colors.text.primary};
-  padding: ${themeVars.spacing[1]};
+  padding: ${themeVars.spacing[2]};
   background: transparent;
   outline: none;
   box-shadow: 0 0 0 1px rgba(71, 217, 251, 0);
@@ -35,15 +35,15 @@ const inputLabel = css`
   margin-bottom: ${themeVars.spacing[0]};
 `;
 
-export default function Input({ color, label, ...props }: InputProps) {
+export default function Input({ color, label, id, ...props }: InputProps) {
   return (
     <div>
       {label && (
-        <Label css={[inputLabel, themeVars.typography.inputLabel]}>
+        <Label htmlFor={id} css={[inputLabel, themeVars.typography.inputLabel]}>
           {label}
         </Label>
       )}
-      <input type="text" css={[inputBase, focused]} {...props} />
+      <input id={id} type="text" css={[inputBase, focused]} {...props} />
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import { css } from '@emotion/react';
 import Input from './Input';
 
 const meta = {
@@ -19,4 +18,5 @@ const Template = (args: any) => <Input {...args} />;
 export const Default: any = Template.bind({});
 Default.args = {
   label: 'Name',
+  id: 'name',
 };
