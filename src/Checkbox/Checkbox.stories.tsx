@@ -1,9 +1,8 @@
 import React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
 import Checkbox from './Checkbox';
 import { css } from '@emotion/react';
 
-const meta: Meta = {
+const meta = {
   title: 'Checkbox',
   component: Checkbox,
   parameters: {
@@ -19,7 +18,7 @@ const Template = (args: any) => <Checkbox {...args} />;
 // https://storybook.js.org/docs/react/workflows/unit-testing
 export const Default: any = Template.bind({});
 
-export const Labelled: Story = (args: any) => (
+export const Labelled: any = (args: any) => (
   <div
     css={css`
       display: flex;
