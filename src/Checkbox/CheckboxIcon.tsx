@@ -26,6 +26,7 @@ const checked = css`
 const iconColor = (props: CheckboxIconProps) => css`
   color: ${themeVars.colors[props.color!].main};
 `;
+
 export default function CheckboxIcon(props: CheckboxIconProps) {
   return (
     <>

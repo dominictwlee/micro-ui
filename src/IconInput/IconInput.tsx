@@ -66,8 +66,6 @@ export default function IconInput({
   color,
   ...props
 }: IconInputProps) {
-  console.log(color);
-
   return (
     <span css={[wrapper, sizes[size]]} {...props}>
       <input
