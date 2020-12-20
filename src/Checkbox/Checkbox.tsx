@@ -1,33 +1,24 @@
 import { ChangeEvent } from 'react';
-import { css } from '@emotion/react';
 import { MdCheckBoxOutlineBlank, MdCheckBox } from 'react-icons/md';
 
 import IconInput from '../IconInput';
-import Label from '../Label';
 import { InputElementProps } from '../types';
 
 interface CheckboxProps {
-  inputProps?: Omit<InputElementProps, 'onChange' | 'checked' | 'id'>;
-  color?: 'primary' | 'secondary' | 'tertiary' | 'accent';
-  size?: 'small' | 'medium' | 'large';
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   checked?: InputElementProps['checked'];
+  color?: 'primary' | 'secondary' | 'tertiary' | 'accent';
   id?: InputElementProps['id'];
+  inputProps?: Omit<InputElementProps, 'onChange' | 'checked' | 'id'>;
   label?: string;
   labelPosition?: 'left' | 'right' | 'top' | 'bottom';
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  size?: 'small' | 'medium' | 'large';
 }
-
-const labelPositionVertical = css`
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-`;
 
 export default function Checkbox({
   size = 'medium',
   color = 'tertiary',
   labelPosition = 'right',
-  label,
   id,
   ...props
 }: CheckboxProps) {
@@ -39,32 +30,8 @@ export default function Checkbox({
     type: 'checkbox' as const,
     checkedIcon: MdCheckBoxOutlineBlank,
     uncheckedIcon: MdCheckBox,
+    labelPosition,
   };
 
-  if (!label) {
-    return <IconInput {...iconInputProps} />;
-  }
-
-  const isVerticalPositioned =
-    labelPosition === 'top' || labelPosition === 'bottom';
-
-  return (
-    <Label
-      htmlFor={id}
-      css={[
-        css`
-          cursor: pointer;
-        `,
-        isVerticalPositioned && labelPositionVertical,
-      ]}
-    >
-      {(labelPosition === 'left' || labelPosition === 'top') && (
-        <span>{label}</span>
-      )}
-      <IconInput {...iconInputProps} />
-      {(labelPosition === 'right' || labelPosition === 'bottom') && (
-        <span>{label}</span>
-      )}
-    </Label>
-  );
+  return <IconInput {...iconInputProps} />;
 }

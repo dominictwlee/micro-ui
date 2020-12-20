@@ -1,18 +1,22 @@
 import { css } from '@emotion/react';
 import { ChangeEvent, ComponentType, HTMLProps } from 'react';
 import { IconBaseProps } from 'react-icons';
+
 import { themeVars } from '../theming';
 import { Color, Size } from '../types';
+import Label from '../Label';
 
 type InputElementProps = HTMLProps<HTMLInputElement>;
 
 interface IconInputProps {
-  color: Color;
-  size: Size;
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   checked?: InputElementProps['checked'];
+  color: Color;
   id?: InputElementProps['id'];
   inputProps?: InputElementProps;
+  label?: string;
+  labelPosition: 'left' | 'right' | 'top' | 'bottom';
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  size: Size;
   type: 'checkbox' | 'radio';
   checkedIcon: ComponentType<IconBaseProps>;
   uncheckedIcon: ComponentType<IconBaseProps>;
@@ -79,6 +83,12 @@ const iconColor = (color: Color) => css`
   color: ${themeVars.colors[color].main};
 `;
 
+const labelPositionVertical = css`
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 export default function IconInput({
   size,
   checked,
@@ -89,9 +99,11 @@ export default function IconInput({
   type,
   checkedIcon: CheckedIcon,
   uncheckedIcon: UncheckedIcon,
+  label,
+  labelPosition,
   ...props
 }: IconInputProps) {
-  return (
+  const iconInput = (
     <span css={[wrapper, sizes[size]]} {...props}>
       <input
         css={checkboxInputHidden}
@@ -104,5 +116,32 @@ export default function IconInput({
       <CheckedIcon size="100%" css={[iconColor(color), checkedDisplay]} />
       <UncheckedIcon size="100%" css={[iconColor(color), uncheckedDisplay]} />
     </span>
+  );
+
+  if (!label) {
+    return iconInput;
+  }
+
+  const isVerticalPositioned =
+    labelPosition === 'top' || labelPosition === 'bottom';
+
+  return (
+    <Label
+      htmlFor={id}
+      css={[
+        css`
+          cursor: pointer;
+        `,
+        isVerticalPositioned && labelPositionVertical,
+      ]}
+    >
+      {(labelPosition === 'left' || labelPosition === 'top') && (
+        <span>{label}</span>
+      )}
+      {iconInput}
+      {(labelPosition === 'right' || labelPosition === 'bottom') && (
+        <span>{label}</span>
+      )}
+    </Label>
   );
 }
