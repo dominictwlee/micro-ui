@@ -65,6 +65,7 @@ export default function IconInput({
   id,
   inputProps,
   color,
+  type,
   ...props
 }: IconInputProps) {
   return (
@@ -75,6 +76,7 @@ export default function IconInput({
         id={id}
         checked={checked}
         onChange={onChange}
+        type={type}
       />
       <CheckboxIcon size="100%" color={color} />
     </span>
