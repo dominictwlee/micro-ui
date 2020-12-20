@@ -30,8 +30,14 @@ export default function Checkbox({
   id,
   ...props
 }: CheckboxProps) {
+  const iconInputProps = {
+    ...props,
+    size,
+    id,
+  };
+
   if (!label) {
-    return <IconInput />;
+    return <IconInput {...iconInputProps} />;
   }
 
   const isVerticalPositioned =
@@ -50,7 +56,7 @@ export default function Checkbox({
       {(labelPosition === 'left' || labelPosition === 'top') && (
         <span>{label}</span>
       )}
-      <IconInput {...props} size={size} id={id} />
+      <IconInput {...iconInputProps} />
       {(labelPosition === 'right' || labelPosition === 'bottom') && (
         <span>{label}</span>
       )}
