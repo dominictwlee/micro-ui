@@ -23,20 +23,20 @@ const checked = css`
   }
 `;
 
-const iconColor = (props: CheckboxIconProps) => css`
-  color: ${themeVars.colors[props.color!].main};
+const iconColor = (color: Color) => css`
+  color: ${themeVars.colors[color].main};
 `;
 
-export default function CheckboxIcon(props: CheckboxIconProps) {
+export default function CheckboxIcon({ color, ...props }: CheckboxIconProps) {
   return (
     <>
       <MdCheckBoxOutlineBlank
-        css={[unchecked, props.color && iconColor(props)]}
+        css={[unchecked, color && iconColor(color)]}
         {...props}
         data-testid="checkbox-checked-icon"
       />
       <MdCheckBox
-        css={[checked, props.color && iconColor(props)]}
+        css={[checked, color && iconColor(color)]}
         {...props}
         data-testid="checkbox-unchecked-icon"
       />
