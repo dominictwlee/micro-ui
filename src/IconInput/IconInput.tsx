@@ -12,6 +12,7 @@ interface IconInputProps {
   checked?: InputElementProps['checked'];
   id?: InputElementProps['id'];
   inputProps?: InputElementProps;
+  type: 'checkbox' | 'radio';
 }
 
 const checkboxInputHidden = css`
@@ -74,7 +75,6 @@ export default function IconInput({
         id={id}
         checked={checked}
         onChange={onChange}
-        type="checkbox"
       />
       <CheckboxIcon size="100%" color={color} />
     </span>

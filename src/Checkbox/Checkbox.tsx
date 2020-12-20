@@ -1,10 +1,9 @@
-import { ChangeEvent, HTMLProps } from 'react';
+import { ChangeEvent } from 'react';
 import { css } from '@emotion/react';
 
 import IconInput from '../IconInput';
 import Label from '../Label';
-
-type InputElementProps = HTMLProps<HTMLInputElement>;
+import { InputElementProps } from '../types';
 
 interface CheckboxProps {
   inputProps?: Omit<InputElementProps, 'onChange' | 'checked' | 'id'>;
@@ -36,6 +35,7 @@ export default function Checkbox({
     size,
     id,
     color,
+    type: 'checkbox' as const,
   };
 
   if (!label) {
