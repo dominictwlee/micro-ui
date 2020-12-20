@@ -25,8 +25,9 @@ const labelPositionVertical = css`
 
 export default function Checkbox({
   size = 'medium',
-  label,
+  color = 'tertiary',
   labelPosition = 'right',
+  label,
   id,
   ...props
 }: CheckboxProps) {
@@ -34,6 +35,7 @@ export default function Checkbox({
     ...props,
     size,
     id,
+    color,
   };
 
   if (!label) {
