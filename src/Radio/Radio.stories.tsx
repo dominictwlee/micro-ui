@@ -13,6 +13,9 @@ const meta = {
 export default meta;
 
 const Template = (args: any) => <Radio {...args} />;
+Template.args = {
+  name: 'radio-options',
+};
 
 // By passing using the Args format for exported stories, you can control the props for a component for reuse in a test
 // https://storybook.js.org/docs/react/workflows/unit-testing
@@ -31,7 +34,3 @@ export const Labelled: any = (args: any) => (
     <Radio {...args} labelPosition="bottom" id="radio-4" label="option 4" />
   </div>
 );
-
-Labelled.args = {
-  name: 'my-options',
-};
