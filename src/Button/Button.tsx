@@ -1,9 +1,10 @@
 import { css } from '@emotion/react';
 import { HTMLProps, PropsWithChildren } from 'react';
 import { themeVars } from '../theming';
+import { Color } from '../types';
 
 export interface ButtonProps extends HTMLProps<HTMLButtonElement> {
-  color?: 'primary' | 'secondary' | 'tertiary';
+  color?: Color;
   type?: 'button' | 'submit' | 'reset';
   fullWidth?: boolean;
 }
@@ -55,27 +56,23 @@ const buttonTextLayer = css`
   position: relative;
 `;
 
-const colorStyles = ({ color = 'primary' }: ButtonProps) => css`
-  border-color: ${themeVars.colors[color].main};
-  background-color: ${themeVars.colors[color].main};
+const colorStyles = (color: Color) => css`
+  border-color: ${themeVars.colors[color!].main};
+  background-color: ${themeVars.colors[color!].main};
 `;
 
-export default function Button({
-  color,
-  fullWidth,
-  children,
-  ...props
-}: PropsWithChildren<ButtonProps>) {
+export default function Button(props: PropsWithChildren<ButtonProps>) {
+  const { color = 'primary', fullWidth, children, ...buttonProps } = props;
   return (
     <button
       type="button"
       css={[
         base,
-        colorStyles,
+        colorStyles(color),
         fullWidth && fullWidthStyles,
         themeVars.typography.button,
       ]}
-      {...props}
+      {...buttonProps}
     >
       <span css={buttonTextLayer}>{children}</span>
     </button>
