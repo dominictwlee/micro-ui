@@ -22,7 +22,7 @@ const inputBase = css`
   transition: border-color, box-shadow 150ms ease-in;
 `;
 
-const focused = ({ color = 'primary' }: InputProps) => css`
+const focused = (color: Color) => css`
   &:focus {
     transition-timing-function: ease-out;
     border-color: ${themeVars.colors[color].lighter};
@@ -35,7 +35,12 @@ const inputLabel = css`
   margin-bottom: ${themeVars.spacing[0]};
 `;
 
-export default function Input({ color, label, id, ...props }: InputProps) {
+export default function Input({
+  color = 'primary',
+  label,
+  id,
+  ...props
+}: InputProps) {
   return (
     <div>
       {label && (
@@ -43,7 +48,7 @@ export default function Input({ color, label, id, ...props }: InputProps) {
           {label}
         </Label>
       )}
-      <input id={id} type="text" css={[inputBase, focused]} {...props} />
+      <input id={id} type="text" css={[inputBase, focused(color)]} {...props} />
     </div>
   );
 }

@@ -14,12 +14,14 @@ const elementTags = {
   p1: 'p',
 } as const;
 
+type ElementTag = keyof typeof elementTags;
+
 export interface TextProps
   extends HTMLProps<HTMLParagraphElement | HTMLHeadingElement> {
-  variant?: keyof typeof elementTags;
+  variant?: ElementTag;
 }
 
-const base = ({ variant = 'p1' }: TextProps) => css`
+const base = (variant: ElementTag) => css`
   font-size: ${themeVars.typography[variant].fontSize};
   font-weight: ${themeVars.typography[variant].fontWeight};
   line-height: ${themeVars.typography[variant].lineHeight};
@@ -30,5 +32,5 @@ export default function Text({
   ...props
 }: PropsWithChildren<TextProps>) {
   const Element = elementTags[variant];
-  return <Element css={base} {...props} />;
+  return <Element css={base(variant)} {...props} />;
 }
