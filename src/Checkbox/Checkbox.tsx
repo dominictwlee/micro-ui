@@ -1,5 +1,6 @@
 import { ChangeEvent } from 'react';
 import { css } from '@emotion/react';
+import { MdCheckBoxOutlineBlank, MdCheckBox } from 'react-icons/md';
 
 import IconInput from '../IconInput';
 import Label from '../Label';
@@ -36,6 +37,8 @@ export default function Checkbox({
     id,
     color,
     type: 'checkbox' as const,
+    checkedIcon: MdCheckBoxOutlineBlank,
+    uncheckedIcon: MdCheckBox,
   };
 
   if (!label) {

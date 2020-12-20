@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
-import React, { ChangeEvent, HTMLProps } from 'react';
-import CheckboxIcon from '../Checkbox/CheckboxIcon';
+import { ChangeEvent, ComponentType, HTMLProps } from 'react';
+import { IconBaseProps } from 'react-icons';
+import { themeVars } from '../theming';
 import { Color, Size } from '../types';
 
 type InputElementProps = HTMLProps<HTMLInputElement>;
@@ -13,6 +14,8 @@ interface IconInputProps {
   id?: InputElementProps['id'];
   inputProps?: InputElementProps;
   type: 'checkbox' | 'radio';
+  checkedIcon: ComponentType<IconBaseProps>;
+  uncheckedIcon: ComponentType<IconBaseProps>;
 }
 
 const checkboxInputHidden = css`
@@ -58,6 +61,24 @@ const sizes = {
   large: sizeLarge,
 };
 
+const uncheckedDisplay = css`
+  display: block;
+  input:checked ~ & {
+    display: none;
+  }
+`;
+
+const checkedDisplay = css`
+  display: none;
+  input:checked ~ & {
+    display: block;
+  }
+`;
+
+const iconColor = (color: Color) => css`
+  color: ${themeVars.colors[color].main};
+`;
+
 export default function IconInput({
   size,
   checked,
@@ -66,6 +87,8 @@ export default function IconInput({
   inputProps,
   color,
   type,
+  checkedIcon: CheckedIcon,
+  uncheckedIcon: UncheckedIcon,
   ...props
 }: IconInputProps) {
   return (
@@ -78,7 +101,8 @@ export default function IconInput({
         onChange={onChange}
         type={type}
       />
-      <CheckboxIcon size="100%" color={color} />
+      <CheckedIcon size="100%" css={[iconColor(color), checkedDisplay]} />
+      <UncheckedIcon size="100%" css={[iconColor(color), uncheckedDisplay]} />
     </span>
   );
 }
