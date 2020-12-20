@@ -19,19 +19,21 @@ export default function Checkbox({
   size = 'medium',
   color = 'tertiary',
   labelPosition = 'right',
-  id,
   ...props
 }: CheckboxProps) {
   const iconInputProps = {
     ...props,
     size,
-    id,
     color,
-    type: 'checkbox' as const,
-    checkedIcon: MdCheckBoxOutlineBlank,
-    uncheckedIcon: MdCheckBox,
     labelPosition,
   };
 
-  return <IconInput {...iconInputProps} />;
+  return (
+    <IconInput
+      {...iconInputProps}
+      type="checkbox"
+      checkedIcon={MdCheckBoxOutlineBlank}
+      uncheckedIcon={MdCheckBox}
+    />
+  );
 }

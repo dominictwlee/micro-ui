@@ -20,6 +20,7 @@ interface IconInputProps {
   type: 'checkbox' | 'radio';
   checkedIcon: ComponentType<IconBaseProps>;
   uncheckedIcon: ComponentType<IconBaseProps>;
+  name?: string;
 }
 
 const checkboxInputHidden = css`
@@ -101,6 +102,7 @@ export default function IconInput({
   uncheckedIcon: UncheckedIcon,
   label,
   labelPosition,
+  name,
   ...props
 }: IconInputProps) {
   const iconInput = (
@@ -112,6 +114,7 @@ export default function IconInput({
         checked={checked}
         onChange={onChange}
         type={type}
+        name={name}
       />
       <CheckedIcon size="100%" css={[iconColor(color), checkedDisplay]} />
       <UncheckedIcon size="100%" css={[iconColor(color), uncheckedDisplay]} />
