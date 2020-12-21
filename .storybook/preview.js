@@ -1,4 +1,3 @@
-import React from 'react';
 import { ThemeProvider } from '../src/theming';
 import BaseStylesGlobal from '../src/BaseStylesGlobal';
 import 'fontsource-montserrat/400.css';

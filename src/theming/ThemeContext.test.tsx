@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTheme } from './ThemeContext';
 import { toCssVarNames } from './utils';
 import defaultThemes from './defaultThemes';

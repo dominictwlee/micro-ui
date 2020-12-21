@@ -1,4 +1,4 @@
-import React, { HTMLProps } from 'react';
+import { HTMLProps } from 'react';
 import { css } from '@emotion/react';
 import { themeVars } from '../theming';
 import { Color } from '../types';
