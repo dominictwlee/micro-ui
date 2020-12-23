@@ -25,6 +25,7 @@ const base = (variant: ElementTag) => css`
   font-size: ${themeVars.typography[variant].fontSize};
   font-weight: ${themeVars.typography[variant].fontWeight};
   line-height: ${themeVars.typography[variant].lineHeight};
+  color: ${themeVars.colors.text.primary};
 `;
 
 export default function Text({

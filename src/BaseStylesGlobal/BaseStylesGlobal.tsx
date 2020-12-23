@@ -4,6 +4,16 @@ export default function BaseStylesGlobal() {
   return (
     <Global
       styles={css`
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+          margin: 0;
+        }
+
         /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 
         /*

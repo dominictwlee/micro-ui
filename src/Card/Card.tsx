@@ -2,8 +2,7 @@ import { PropsWithChildren } from 'react';
 import { css } from '@emotion/react';
 
 import { themeVars } from '../theming';
-
-type Roundness = 1 | 2;
+import { Roundness } from '../types';
 
 export interface CardProps {
   roundness?: Roundness;
