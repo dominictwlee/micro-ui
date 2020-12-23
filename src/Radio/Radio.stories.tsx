@@ -4,9 +4,6 @@ import Radio from './Radio';
 const meta = {
   title: 'Radio',
   component: Radio,
-  parameters: {
-    controls: { expanded: true },
-  },
 };
 
 export default meta;

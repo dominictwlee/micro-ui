@@ -1,13 +1,11 @@
 import React from 'react';
+import { Meta, Story } from '@storybook/react/types-6-0';
 import { useState } from 'react';
 import Drawer from './Drawer';
 
-const meta = {
+const meta: Meta = {
   title: 'Drawer',
   component: Drawer,
-  parameters: {
-    controls: { expanded: true },
-  },
 };
 
 export default meta;
@@ -22,7 +20,7 @@ function DrawerWithToggle() {
   );
 }
 
-const Template = (args: any) => <DrawerWithToggle {...args} />;
+const Template: Story = args => <DrawerWithToggle {...args} />;
 
 // By passing using the Args format for exported stories, you can control the props for a component for reuse in a test
 // https://storybook.js.org/docs/react/workflows/unit-testing

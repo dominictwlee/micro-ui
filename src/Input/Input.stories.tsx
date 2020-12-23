@@ -3,9 +3,6 @@ import Input from './Input';
 const meta = {
   title: 'Input',
   component: Input,
-  parameters: {
-    controls: { expanded: true },
-  },
 };
 
 export default meta;

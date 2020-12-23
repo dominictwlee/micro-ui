@@ -4,9 +4,6 @@ import { css } from '@emotion/react';
 const meta = {
   title: 'Checkbox',
   component: Checkbox,
-  parameters: {
-    controls: { expanded: true },
-  },
 };
 
 export default meta;
