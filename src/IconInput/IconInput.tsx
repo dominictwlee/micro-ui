@@ -116,8 +116,16 @@ export default function IconInput({
         type={type}
         name={name}
       />
-      <CheckedIcon size="100%" css={[iconColor(color), checkedDisplay]} />
-      <UncheckedIcon size="100%" css={[iconColor(color), uncheckedDisplay]} />
+      <CheckedIcon
+        size="100%"
+        css={[iconColor(color), checkedDisplay]}
+        data-testid="checkbox-checked-icon"
+      />
+      <UncheckedIcon
+        size="100%"
+        css={[iconColor(color), uncheckedDisplay]}
+        data-testid="checkbox-unchecked-icon"
+      />
     </span>
   );
 

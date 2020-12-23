@@ -3,42 +3,42 @@
 exports[`Text render different variants 1`] = `
 <div>
   <h1
-    class="css-cu1ao1-base"
+    class="css-1o7bj83-base"
   >
     h1
   </h1>
   <h2
-    class="css-cu1ao1-base"
+    class="css-4icqhe-base"
   >
     h2
   </h2>
   <h3
-    class="css-cu1ao1-base"
+    class="css-uoe7du-base"
   >
     h3
   </h3>
   <h4
-    class="css-cu1ao1-base"
+    class="css-1llivza-base"
   >
     h4
   </h4>
   <h5
-    class="css-cu1ao1-base"
+    class="css-1dzsr6v-base"
   >
     h5
   </h5>
   <h6
-    class="css-cu1ao1-base"
+    class="css-1frn9l6-base"
   >
     h6
   </h6>
   <h6
-    class="css-cu1ao1-base"
+    class="css-122qqrq-base"
   >
     h7
   </h6>
   <p
-    class="css-cu1ao1-base"
+    class="css-1oykwkb-base"
   >
     p1
   </p>
